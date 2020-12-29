@@ -1,6 +1,8 @@
 package com.sinngjpeg.testes_treinamento
 
 import org.junit.Assert
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class PasswordValidatorTest {
@@ -8,14 +10,11 @@ class PasswordValidatorTest {
 
     @Test
     fun givenPasswordShorterThan8_whenValidate_shouldReturnFalse() {
-
-        //arrange
-
         //act
         val result = passwordValidator.isValid("1B3@f67")
 
         //assert
-        Assert.assertFalse(result)
+        assertFalse(result)
     }
 
 
@@ -24,8 +23,7 @@ class PasswordValidatorTest {
 
         val result = passwordValidator.isValid("1b3@f67")
 
-
-        Assert.assertFalse(result)
+        assertFalse(result)
 
     }
 
@@ -35,7 +33,7 @@ class PasswordValidatorTest {
 
         val result = passwordValidator.isValid("1B3@F67A#")
 
-        Assert.assertFalse(result)
+        assertFalse(result)
 
     }
 
@@ -45,7 +43,7 @@ class PasswordValidatorTest {
         val result = passwordValidator.isValid("ABcdedfa#")
 
         //assert
-        Assert.assertFalse(result)
+        assertFalse(result)
     }
 
     @Test
@@ -53,21 +51,17 @@ class PasswordValidatorTest {
 
         val result = passwordValidator.isValid("ABcdedfa")
 
-        //assert
-        Assert.assertFalse(result)
+
+        assertFalse(result)
     }
 
 
     @Test
     fun givenPasswordShorterThan8_whenValidate_shouldReturnTrue() {
 
-        //arrange
-
-        //act
         val result = passwordValidator.isValid("1B3@f670")
 
-        //assert
-        Assert.assertTrue(result)
+        assertTrue(result)
     }
 
 }
